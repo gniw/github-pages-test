@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   logo: <span>GitHub Pages Test Documentation</span>,
   project: {
