@@ -94,9 +94,13 @@ jobs:
 
       - name: Remove PR preview directory
         run: |
-          rm -rf pr-${{ github.event.pull_request.number }}
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-          git add .
-          git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}" || echo "Nothing to commit"
-          git push || echo "Nothing to push"
+          if [ -d "pr-${{ github.event.pull_request.number }}" ]; then
+            rm -rf pr-${{ github.event.pull_request.number }}
+            git config user.name github-actions[bot]
+            git config user.email github-actions[bot]@users.noreply.github.com
+            git add .
+            git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}"
+            git push
+          else
+            echo "Preview directory does not exist, nothing to clean up"
+          fi
