@@ -1,0 +1,39 @@
+# Advanced Topics
+
+This section covers advanced topics for working with the documentation.
+
+## Customization
+
+You can customize the theme by editing `theme.config.jsx`.
+
+## Adding Pages
+
+To add a new page:
+
+1. Create a new `.mdx` file in the `pages` directory
+2. Add the page to `_meta.json` to configure its order and title
+3. Write your content in Markdown format
+
+## Components
+
+Nextra supports React components within MDX:
+
+```jsx
+export const MyComponent = () => <div>Hello World!</div>
+
+<MyComponent />
+```
+
+## Syntax Highlighting
+
+Code blocks support syntax highlighting:
+
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+```
+
+## Images and Assets
+
+Place static assets in the `public` directory and reference them in your documentation.
